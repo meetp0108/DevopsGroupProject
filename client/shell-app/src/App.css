@@ -1,0 +1,53 @@
+#root {
+  max-width: 900px; /* Slightly smaller max-width for a more compact look */
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: #5865a0; /* Darker shade for a more professional look */
+  border-radius: 15px; /* Added rounded corners */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+}
+
+.logo {
+  height: 8em;
+  padding: 2em;
+  will-change: transform, filter;
+  transition: transform 0.5s, filter 0.5s;
+}
+.logo:hover {
+  transform: scale(1.15); /* Slightly larger scaling on hover */
+  filter: drop-shadow(0 0 0.75em rgba(0, 0, 0, 0.3)); /* Increased shadow effect */
+}
+
+.card {
+  padding: 1.5em;
+  background-color: #f9f9f9; /* Light gray for softer contrast */
+  border-radius: 12px; /* Increased border radius for a smoother look */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Increased shadow for depth */
+  margin-top: 2em;
+  transition: transform 0.3s ease-in-out; /* Added transform effect */
+}
+.card:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+.read-the-docs {
+  color: #444; /* Slightly darker text color for better readability */
+  font-style: italic;
+  margin-top: 1em;
+  opacity: 0.9; /* Reduced opacity for a subtle effect */
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+    border-radius: 10px; /* Smaller radius on mobile */
+  }
+  .logo {
+    height: 5.5em; /* Slightly smaller logo for better fit on mobile */
+  }
+  .card {
+    padding: 1em;
+    margin-top: 1.5em; /* Reduced top margin for compact look */
+  }
+}
