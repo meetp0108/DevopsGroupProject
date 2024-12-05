@@ -8,20 +8,26 @@ import {
   useGetVitalSigns,
 } from "../hooks/useVitalSign";
 
+// VitalSignForm component handles adding or updating vital sign records
 const VitalSignForm = () => {
+  // Extract the 'id' parameter from the URL to determine if editing or adding a record
   const { id } = useParams();
+  // Custom hooks to handle vital sign operations
   const handleAdd = useAddVitalSign();
   const handleUpdate = useUpdateVitalSign();
   const { data } = useGetVitalSignById(id);
   const { refetch } = useGetVitalSigns();
 
+  // Form field references (controlled via ref for direct DOM access)
   let temperature, bloodPressure, heartRate, respiratoryRate;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     id
+     // Update existing vital sign
       ? handleUpdate(id, temperature, bloodPressure, heartRate, respiratoryRate)
       : handleAdd(
+        // Add new vital sign and refetch the list
           temperature,
           bloodPressure,
           heartRate,
