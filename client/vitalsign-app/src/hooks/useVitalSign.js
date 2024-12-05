@@ -7,16 +7,18 @@ import {
   VITAL_SIGNS,
 } from "../queries/vitalSignQueries";
 
+// Custom hook for adding a new vital sign
 const useAddVitalSign = () => {
-  const [addVitalSign] = useMutation(ADD_VITAL_SIGN);
-  const navigate = useNavigate();
+  const [addVitalSign] = useMutation(ADD_VITAL_SIGN); // Mutation to add vital sign
+  const navigate = useNavigate();  // For programmatic navigation
 
+  // Function to handle adding a vital sign
   const handleAdd = (
     temperature,
     bloodPressure,
     heartRate,
     respiratoryRate,
-    refetch
+    refetch // Function to refresh the vital signs list
   ) => {
     addVitalSign({
       variables: {
@@ -26,7 +28,7 @@ const useAddVitalSign = () => {
         respiratoryRate: parseFloat(respiratoryRate.value),
       },
     });
-
+// Clear form fields after submission
     temperature.value = "";
     bloodPressure.value = "";
     heartRate.value = "";
@@ -39,6 +41,7 @@ const useAddVitalSign = () => {
   return handleAdd;
 };
 
+// Custom hook for updating an existing vital sign
 const useUpdateVitalSign = () => {
   const [updateVitalSign] = useMutation(UPDATE_VITAL_SIGN);
   const navigate = useNavigate();
@@ -66,6 +69,7 @@ const useUpdateVitalSign = () => {
   return handleUpdate;
 };
 
+// Custom hook for fetching a single vital sign by ID
 const useGetVitalSignById = (id) => {
   return id
     ? useQuery(GET_VITAL_SIGN_BY_ID, {
@@ -74,6 +78,7 @@ const useGetVitalSignById = (id) => {
     : {};
 };
 
+// Custom hook for fetching the list of all vital signs
 const useGetVitalSigns = () => {
   return useQuery(VITAL_SIGNS);
 };
