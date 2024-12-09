@@ -7,7 +7,8 @@
   "scripts": {
     "start:auth": "nodemon ./microservices/auth.microservice.js",
     "start:vitalSign": "nodemon ./microservices/vital-sign.microservice.js",
-    "start:server": "nodemon ./server.js"
+    "start:server": "nodemon ./server.js",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
     "express": "^4.18.3",
     "express-session": "^1.17.2",
     "graphql": "^16.8.1",
+    "jest": "^29.7.0",
     "jsonwebtoken": "^9.0.2",
     "method-override": "^2.3.10",
     "mongoose": "^6.12.6",
@@ -41,6 +43,9 @@
     "uri-js": "^4.2.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "babel-jest": "^29.7.0",
     "nodemon": "^3.1.0"
   }
 }
