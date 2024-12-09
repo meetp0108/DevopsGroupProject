@@ -1,11 +1,17 @@
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+// import bcrypt from "bcrypt";
+// import jwt from "jsonwebtoken";
 
-import User from "../models/user.model.js";
-import config from "../config/config.js";
+// import User from "../models/user.model.js";
+// import config from "../config/config.js";
+
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const User = require('../models/user.model.js');
+//const config = require('../config/config.js');
+
 
 const jwtExpirySeconds = 86400;
-const jwtSecretKey = config.secretKey;
+//const jwtSecretKey = config.secretKey;
 
 const generateToken = (res, user) => {
   const token = jwt.sign({ username: user.username }, jwtSecretKey, {
@@ -98,4 +104,4 @@ const resolvers = {
   },
 };
 
-export default resolvers;
+module.exports = resolvers;
